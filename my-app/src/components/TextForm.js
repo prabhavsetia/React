@@ -24,8 +24,8 @@ export default function TextForms(props) {
     // setText("New Text");
 
     const [myStyle, setMyStyle] = useState({
-        background: 'white',
-        color: 'black'
+        background: 'black',
+        color: 'white'
     })
     const [btnText, setBtnText] = useState("Dark Mode")
     const ToggleStyle = () => {
@@ -38,7 +38,7 @@ export default function TextForms(props) {
         }
         else {
             setMyStyle({
-                background: 'gray',
+                background: 'black',
                 color: 'white'
             })
             setBtnText("Dark Mode")
@@ -49,7 +49,7 @@ export default function TextForms(props) {
             <div className='container' style={myStyle}>
                 <h3>{props.heading} </h3>
                 <div className="mb-3">
-                    <textarea className="form-control" value={text} onChange={handleOnChange} id="myBax" rows="8"></textarea>
+                    <textarea className="form-control" value={text} style={{background :props.mode === 'dark' ? 'grey' : 'white'}}onChange={handleOnChange} id="myBax" rows="8"></textarea>
                 </div>
                 <button className='btn btn-primary mx-2' onClick={handleUpClick}>Convert To Uppercase</button>
                 <button className='btn btn-primary mx-2' onClick={handleLowerClick}>Convert To Lowercase</button>
@@ -59,7 +59,7 @@ export default function TextForms(props) {
             <div className='container'>
                 <h3>Your text summary</h3>
                 <p>{text.split(" ").length} Words and {text.length} characters</p>
-                <p>{0.008 * text.split(" ").length}Minuts read</p>
+                <p>{0.008 * text.split(" ").length}Minuts read</p> 
             </div>
             
         </>
