@@ -9,16 +9,19 @@ export default function TextForms(props) {
         console.log("Uppercase Was Cliked" + text);
         let newText = text.toUpperCase();
         setText(newText)
+        props.AlertMode("Text converted to UPPERCASE", "success");
     }
     const handleLowerClick = () => {
         let newText = text.toLowerCase();
         console.log("Lowercase Was Cliked");
         setText(newText);
+        props.AlertMode("Text converted to lowercase", "success");
     }
     const handleClearClick = () => {
         let newText = "";
         console.log("Clear Was Cliked");
         setText(newText);
+        props.AlertMode("Text cleared", "success");
     }
     const [text, setText] = useState('Enter text here');
     // setText("New Text");
