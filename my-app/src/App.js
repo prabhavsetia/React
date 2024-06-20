@@ -46,8 +46,8 @@ function App() {
         <Alert alert={alert} />
         <div className="container my-3">
           <Switch>
-            <Route path="/about" element={<About />} />
-            <Route path="/" element={<TextForm AlertMode={AlertMode} heading="Enter the text to analyze" mode={mode} />} />
+            <Route exact path="/about" element={<About />} />
+            <Route exact path="/" element={<TextForm AlertMode={AlertMode} heading="Enter the text to analyze" mode={mode} />} />
           </Switch>
         </div >
       </Router>
