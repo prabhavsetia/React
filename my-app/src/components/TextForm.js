@@ -26,40 +26,28 @@ export default function TextForms(props) {
     const [text, setText] = useState('Enter text here');
     // setText("New Text");
 
-    const [myStyle, setMyStyle] = useState({
-        background: 'black',
-        color: 'white'
-    })
-    const [btnText, setBtnText] = useState("Dark Mode")
-    const ToggleStyle = () => {
-        if (myStyle.color === 'white') {
-            setMyStyle({
-                background: 'white',
-                color: 'black'
-            })
-            setBtnText("Light Mode")
-        }
-        else {
-            setMyStyle({
-                background: 'black',
-                color: 'white'
-            })
-            setBtnText("Dark Mode")
-        }
+    // const [myStyle, setMyStyle] = useState({
+    //     background: 'black',
+    //     color: 'white'
+    // })
+
+    let myStyle = {
+        color: props.mode ==='dark'? 'white':'black',
+        backgroundColor: props.mode ==='dark'? '#004f84':'white'
     }
+    const [btnText, setBtnText] = useState("Dark Mode")
     return (
         <>
             <div className='container' style={myStyle}>
                 <h3>{props.heading} </h3>
                 <div className="mb-3">
-                    <textarea className="form-control" value={text} style={{background :props.mode === 'dark' ? 'grey' : 'white'}}onChange={handleOnChange} id="myBax" rows="8"></textarea>
+                    <textarea className="form-control" value={text} style={{background :props.mode === 'dark' ? 'white' : 'white'}}onChange={handleOnChange} id="myBax" rows="8"></textarea>
                 </div>
-                <button className='btn btn-primary mx-2' onClick={handleUpClick}>Convert To Uppercase</button>
-                <button className='btn btn-primary mx-2' onClick={handleLowerClick}>Convert To Lowercase</button>
-                <button className='btn btn-primary mx-2' onClick={handleClearClick}>Clear</button>
-                <button onClick={ToggleStyle} type="button" className="btn btn-outline-success" >{btnText}</button>
+                <button className='btn btn-primary mx-2 my-1' onClick={handleUpClick}>Convert To Uppercase</button>
+                <button className='btn btn-primary mx-2 my-1' onClick={handleLowerClick}>Convert To Lowercase</button>
+                <button className='btn btn-primary mx-2 my-1' onClick={handleClearClick}>Clear</button>
             </div>
-            <div className='container'>
+            <div className='container' style={{color :props.mode === 'dark' ? 'white' : 'black'}}>
                 <h3>Your text summary</h3>
                 <p>{text.split(" ").filter((element)=>{return element.length!=0}).length} Words and {text.length} characters</p>
                 <p>{0.008 * text.split(" ").length}Minuts read</p> 
