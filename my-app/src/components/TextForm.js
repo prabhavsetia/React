@@ -35,7 +35,7 @@ export default function TextForms(props) {
         color: props.mode ==='dark'? 'white':'black',
         backgroundColor: props.mode ==='dark'? '#004f84':'white'
     }
-    const [btnText, setBtnText] = useState("Dark Mode")
+    // const [btnText, setBtnText] = useState("Dark Mode")
     return (
         <>
             <div className='container' style={myStyle}>
@@ -43,13 +43,13 @@ export default function TextForms(props) {
                 <div className="mb-3">
                     <textarea className="form-control" value={text} style={{background :props.mode === 'dark' ? 'white' : 'white'}}onChange={handleOnChange} id="myBax" rows="8"></textarea>
                 </div>
-                <button className='btn btn-primary mx-2 my-1' onClick={handleUpClick}>Convert To Uppercase</button>
-                <button className='btn btn-primary mx-2 my-1' onClick={handleLowerClick}>Convert To Lowercase</button>
-                <button className='btn btn-primary mx-2 my-1' onClick={handleClearClick}>Clear</button>
+                <button disabled={text.length===0} className='btn btn-primary mx-2 my-1' onClick={handleUpClick}>Convert To Uppercase</button>
+                <button disabled={text.length===0}  className='btn btn-primary mx-2 my-1' onClick={handleLowerClick}>Convert To Lowercase</button>
+                <button disabled={text.length===0}  className='btn btn-primary mx-2 my-1' onClick={handleClearClick}>Clear</button>
             </div>
             <div className='container' style={{color :props.mode === 'dark' ? 'white' : 'black'}}>
                 <h3>Your text summary</h3>
-                <p>{text.split(" ").filter((element)=>{return element.length!=0}).length} Words and {text.length} characters</p>
+                <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Words and {text.length} characters</p>
                 <p>{0.008 * text.split(" ").length}Minuts read</p> 
             </div>
             
