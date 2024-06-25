@@ -1,0 +1,297 @@
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import NewsItem from './NewsItem'
+
+export default class News extends Component {
+    static propTypes = {
+        prop: PropTypes
+    }
+    articles = [
+        {
+            "source": {
+                "id": "espn-cric-info",
+                "name": "ESPN Cric Info"
+            },
+            "author": "ESPNcricinfo staff",
+            "title": "Khawaja: Australia 'should be playing Afghanistan' - ESPNcricinfo",
+            "description": "The Australia opener acknowledged the complex issues involved but said CA's stance was 'a little bit hypocritical'",
+            "url": "https://www.espncricinfo.com/story/usman-khawaja-australia-should-be-playing-afghanistan-1440678",
+            "urlToImage": "https://img1.hscicdn.com/image/upload/f_auto/lsci/db/PICTURES/CMS/383500/383573.6.jpg",
+            "publishedAt": "2024-06-24T10:25:40Z",
+            "content": "NewsThe Australia opener acknowledged the complex issues involved but said CA's stance was 'a little bit hypocritical'"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Financial Express"
+            },
+            "author": "The Financial Express",
+            "title": "iPhone 16 leak: Classic vertical cameras return,Pro models gets dedicated shutter button - The Financial Express",
+            "description": null,
+            "url": "https://www.financialexpress.com/life/technology-iphone-16-leak-classic-vertical-cameras-returnpro-models-gets-dedicated-shutter-button-3533379/",
+            "urlToImage": null,
+            "publishedAt": "2024-06-24T10:03:52Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "NDTV News"
+            },
+            "author": null,
+            "title": "\"Streets, Footpath Cleared For VVIPs, Why Not For Everyone?\" High Court - NDTV",
+            "description": "The Bombay High Court on Monday said when streets and footpaths are cleared for the prime minister and other VVIPs for one day, why can't it be done on a daily basis for everyone else too.",
+            "url": "https://www.ndtv.com/india-news/streets-footpath-cleared-for-vvips-why-not-for-everyone-high-court-5957597",
+            "urlToImage": "https://c.ndtvimg.com/2024-02/18l5e7d_indian-economy-street-vendors-unsplash_625x300_25_February_24.jpg?im=FeatureCrop,algorithm=dnn,width=1200,height",
+            "publishedAt": "2024-06-24T09:44:37Z",
+            "content": "The high court last year took suo motu cognizance of the issue of illegal hawkers in the city. (File)\r\nMumbai: The Bombay High Court on Monday said when streets and footpaths are cleared for the prim… [+2726 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Thehealthsite.com"
+            },
+            "author": "Prerna Mittra",
+            "title": "Chad Becomes First Country To Eliminate African Trypanosomiasis Or Sleeping Sickness | TheHealthSite.com - TheHealthSite",
+            "description": "According to the CDC African sleeping sickness is caused by a parasite; people can get infected when bitten by a tsetse fly. TheHealthSite.com",
+            "url": "https://www.thehealthsite.com/news/chad-first-country-eliminate-neglected-tropical-disease-2024-african-trypanosomiasis-sleeping-sickness-1102210/",
+            "urlToImage": "https://st1.thehealthsite.com/wp-content/uploads/2024/06/Tsetse-fly.jpg",
+            "publishedAt": "2024-06-24T09:31:00Z",
+            "content": "Tsetse flies are said to be attracted to the motion and dust from moving vehicles. (Photo: Wikimedia Commons)\r\nAccording to the CDC, African sleeping sickness is caused by a parasite; people can get … [+2729 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Hindustan Times"
+            },
+            "author": "HT Correspondent",
+            "title": "MEA working to cut police verification time for passports, says Jaishankar - Hindustan Times",
+            "description": "External affairs minister S Jaishankar said his ministry is committed to ensuring that passports significantly impact the country’s development by facilitating international trade and investment and enhancing global mobility | Latest News India",
+            "url": "https://www.hindustantimes.com/india-news/mea-working-to-cut-police-verification-time-for-passports-says-jaishankar-101719215758923.html",
+            "urlToImage": "https://www.hindustantimes.com/ht-img/img/2024/06/24/1600x900/External-affairs-minister-S-Jaishankar---ANI-File-_1719220692955.jpg",
+            "publishedAt": "2024-06-24T09:19:00Z",
+            "content": "The external affairs ministry is working with police forces in states and Union territories to reduce the time taken for police verification of passport applicants as part of efforts to improve the p… [+2861 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Hindustan Times"
+            },
+            "author": "ANI",
+            "title": "\"For Australia, it is about...\": Khawaja's advises teammates ahead of must-win T20 WC clash against India - Hindustan Times",
+            "description": "India and Australia take on each other in a must-win clash at Saint Lucia on Monday. India is at the top of Group One with two wins in two games and have four points. They won their previous game against Bangladesh by 50 runs. On the other hand, Australia is …",
+            "url": "https://www.hindustantimes.com/cricket/for-australia-it-is-about-khawaja-s-advises-teammates-ahead-of-must-win-t20-wc-clash-against-india-101719219875412.html",
+            "urlToImage": "https://www.hindustantimes.com/ht-img/img/2024/04/16/1600x900/Cricket_1713260878026_1713260990583.jpg",
+            "publishedAt": "2024-06-24T09:04:34Z",
+            "content": "Melbourne [Australia], : Ahead of his side's ICC T20 World Cup Super Eights clash against India, Australia opener Usman Khawaja urged his team to move on from the shock defeat to Afghanistan and focu… [+3880 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Moneycontrol"
+            },
+            "author": "Ishaan Gera",
+            "title": "Govt imposes stock limits on wheat till end of the fiscal - Moneycontrol",
+            "description": "India imposed stock limits on the quantity of wheat that retailers and processors can hold to keep prices in check, said Sanjeev Chopra, secretary, Department of Food and Public Distribution on June 24.No shortage of wheat in the country, says secretary",
+            "url": "https://www.moneycontrol.com/news/business/commodities/govt-imposes-stock-limits-on-wheat-till-end-of-the-fiscal-12755036.html",
+            "urlToImage": "https://images.moneycontrol.com/static-mcnews/2021/02/exportsricefarmerwheat.jpg",
+            "publishedAt": "2024-06-24T09:04:27Z",
+            "content": "India imposed stock limits on the quantity of wheat that retailers and processors can hold to keep prices in check, said Sanjeev Chopra, secretary, Department of Food and Public Distribution on June … [+2149 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "The Indian Express"
+            },
+            "author": "The Indian Express",
+            "title": "Parliament Session 2024 Live Updates: ‘Attack by PM, Amit Shah on Constitution not acceptable to us,’ says Rahul Gandhi as 18th Lok Sabha begins - The Indian Express",
+            "description": null,
+            "url": "https://indianexpress.com/article/india/parliament-session-2024-live-updates-oath-taking-speaker-modi-rahul-gandhi-9410918/",
+            "urlToImage": null,
+            "publishedAt": "2024-06-24T09:03:13Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Hindustan Times"
+            },
+            "author": "Tuhin Das Mahapatra",
+            "title": "Jewish family attacked at Brooklyn School graduation with the shouting ‘Death to Israel!’ - Hindustan Times",
+            "description": "A Jewish couple was violently attacked at a Brooklyn school graduation by an Arabic-speaking family, with antisemitic slurs and threats escalating the incident.",
+            "url": "https://www.hindustantimes.com/world-news/us-news/jewish-family-attacked-at-brooklyn-school-graduation-with-the-shouting-death-to-israel-101719214719368.html",
+            "urlToImage": "https://www.hindustantimes.com/ht-img/img/2024/06/24/1600x900/US-CLIMATE-AND-PALESTINE-ACTIVISTS-PROTEST-OUTSIDE_1719217878163_1719217878448.jpg",
+            "publishedAt": "2024-06-24T08:45:15Z",
+            "content": "A Jewish mother and her husband were attacked and beaten at a Brooklyn elementary school graduation by an Arabic-speaking family.\r\nA person holds a Palestine flag as people participate in a 'Climate … [+2541 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "NDTV News"
+            },
+            "author": null,
+            "title": "\"What Happened Is Unusual\": Top Court's Remark On Arvind Kejriwal Hearing - NDTV",
+            "description": "The Supreme Court on Monday refused Delhi Chief Minister Arvind Kejriwal immediate relief in his battle to overturn the High Court's interim stay on a bail order issued last week by a lower court.",
+            "url": "https://www.ndtv.com/india-news/let-high-court-pass-order-supreme-court-on-arvind-kejriwals-plea-5957343",
+            "urlToImage": "https://c.ndtvimg.com/2024-04/4t8b8ev8_arvind-kejriwal-ani-650_650x400_04_April_24.jpg?im=FaceCrop,algorithm=dnn,width=1200,height=738?ver-20240615.100",
+            "publishedAt": "2024-06-24T08:30:00Z",
+            "content": "Delhi Chief Minister Arvind Kejriwal (File).\r\nNew Delhi: The Supreme Court on Monday refused Delhi Chief Minister Arvind Kejriwal immediate relief in his battle to overturn the High Court's interim s… [+5461 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "International Cricket Council"
+            },
+            "author": "icc",
+            "title": "South Africa overcome West Indies' grit to continue unbeaten run into semi-finals | Match Highlights | T20WC 2024 - ICC Cricket",
+            "description": null,
+            "url": "https://www.icc-cricket.com/tournaments/t20cricketworldcup/videos/south-africa-overcome-gritty-west-indies-to-continue-unbeaten-run-into-semi-finals-match-highlights-t20wc-2024",
+            "urlToImage": "https://images.icc-cricket.com/image/upload/t_ratio16_9-size40/prd/yomlbcf3dtf0vdkjl8y8",
+            "publishedAt": "2024-06-24T08:20:54Z",
+            "content": "ICC Men's T20 World Cup, 2024\r\nSouth Africa overcome West Indies' grit to continue unbeaten run into semi-finals | Match Highlights | T20WC 2024\r\n5h\r\nLatest Videos"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Ndtvprofit.com"
+            },
+            "author": "Aditi Shah",
+            "title": "Space Potato: NASA Shares Image Of Mars Moon Phobos, Netizens React - NDTV Profit",
+            "description": "Photo orbits Mars three times a day, and is so close to the planet's surface that in some locations on Mars it cannot always be seen.",
+            "url": "https://www.ndtvprofit.com/trending/space-potato-nasa-shares-image-of-mars-moon-phobos-netizens-react",
+            "urlToImage": "https://media.assettype.com/bloombergquint%2F2024-06%2F40c8df8f-ec6a-46c8-9325-d958f4a67979%2FPotato.jpg?w=1200&auto=format%2Ccompress&ogImage=true",
+            "publishedAt": "2024-06-24T08:12:11Z",
+            "content": "\"The Martian moon Phobos stands against the darkness of space. The moon is brownish-red and lumpy, pocketed with a number of craters of all sizes. A white patch is visible next to Stickney crater, a … [+555 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Business Standard"
+            },
+            "author": "Harsh Shivam",
+            "title": "Apple's cheaper Vision Pro-like headset may require iPhone to work: Report - Business Standard",
+            "description": "Cheaper Apple Vision Headset: To reduce the cost, Apple could cut down on internal components that make Vision Pro a standalone product. The company also plans on reducing the internal display specifications",
+            "url": "https://www.business-standard.com/technology/tech-news/apple-s-cheaper-vision-pro-like-headset-may-require-iphone-to-work-report-124062400405_1.html",
+            "urlToImage": "https://bsmedia.business-standard.com/_media/bs/img/article/2024-01/19/thumb/featurecrop/400X400/1705683406-0003.jpg",
+            "publishedAt": "2024-06-24T08:04:43Z",
+            "content": "To reduce the cost, Apple could cut down on internal components that make Vision Pro a standalone product. The company also plans on reducing the internal display specifications\r\nApple Vision Pro\r\nHa… [+2214 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Financial Express"
+            },
+            "author": "The Financial Express",
+            "title": "TS Inter Supply Results 2024 Live Updates: TSBIE to announce 1st, 2nd year supplementary results today at tgbie.cgg.gov.in – Here’s direct link, steps to download - The Financial Express",
+            "description": null,
+            "url": "https://www.financialexpress.com/jobs-career/education-ts-inter-supply-results-2024-live-updates-tsbie-telangana-manabadi-intermediate-1st-2nd-year-marks-results-direct-link-to-check-at-tgbie-cgg-gov-in-tsbie-gov-in-3532912/",
+            "urlToImage": null,
+            "publishedAt": "2024-06-24T08:04:24Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": "google-news",
+                "name": "Google News"
+            },
+            "author": "NDTV",
+            "title": "\"Justice Served\": Indian CEO On Hindujas' Conviction For Exploiting Staff - NDTV",
+            "description": null,
+            "url": "https://news.google.com/rss/articles/CBMiiwFodHRwczovL3d3dy5uZHR2LmNvbS9pbmRpYS1uZXdzL2V2ZW4tYS1yaWNoLWZhbWlseS1jYXBpdGFsbWluZC1jZW8tZGVlcGFrLXNoZW5veS1vbi1oaW5kdWphLWZhbWlseXMtY29udmljdGlvbi1mb3ItZXhwbG9pdGluZy1zdGFmZi01OTU3NzM40gGRAWh0dHBzOi8vd3d3Lm5kdHYuY29tL2luZGlhLW5ld3MvZXZlbi1hLXJpY2gtZmFtaWx5LWNhcGl0YWxtaW5kLWNlby1kZWVwYWstc2hlbm95LW9uLWhpbmR1amEtZmFtaWx5cy1jb252aWN0aW9uLWZvci1leHBsb2l0aW5nLXN0YWZmLTU5NTc3MzgvYW1wLzE?oc=5",
+            "urlToImage": null,
+            "publishedAt": "2024-06-24T08:01:44Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Free Press Journal"
+            },
+            "author": "Amisha Shirgave",
+            "title": "Will A Massive Asteroid Hit Earth In 2038? NASAs Hypothetical Exercise Shows 72% Chance - Free Press Journal",
+            "description": "Nasa conducted a hypothetical exercise to understand Earth's ability to respond effectively to a potentially hazardous threat.",
+            "url": "https://www.freepressjournal.in/lifestyle/will-a-massive-asteroid-hit-earth-in-2038-nasas-hypothetical-exercise-shows-72-chance",
+            "urlToImage": "https://media.assettype.com/freepressjournal/2024-06/9db8cfe3-8712-459a-8253-7db3f411171b/2dc1482e4dac8336f2693c0124070cc0.jpg",
+            "publishedAt": "2024-06-24T07:43:06Z",
+            "content": "NASA has raised a concern over a theoretical scenario in which there is a 72% chance that an asteroid might reach Earth on July 12, 2038, and could pose a threat. \r\nEven though there are no current t… [+2704 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "The Indian Express"
+            },
+            "author": "The Indian Express",
+            "title": "Sonakshi Sinha, Zaheer Iqbal wedding live updates: Salman Khan attends Sonakshi and Zaheer’s wedding reception amid heavy security - The Indian Express",
+            "description": null,
+            "url": "https://indianexpress.com/article/entertainment/bollywood/sonakshi-sinha-zaheer-iqbal-wedding-live-updates-it-is-d-day-for-double-xl-actors-9407863/",
+            "urlToImage": null,
+            "publishedAt": "2024-06-24T07:33:50Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "NDTV News"
+            },
+            "author": null,
+            "title": "AAP Ministers Seek Urgent Solution Of Delhi Water Crisis In Letter To PM Modi - NDTV",
+            "description": "Delhi cabinet ministers have written a letter to Prime Narendra Modi and urged him to resolve the water crisis in the national capital on a priority basis, Environment Minister Gopal Rai said on Monday.",
+            "url": "https://www.ndtv.com/india-news/delhi-water-crisis-aap-ministers-seek-urgent-solution-of-delhi-water-crisis-in-letter-to-pm-narendra-modi-5957406",
+            "urlToImage": "https://c.ndtvimg.com/2024-06/qaj43mag_delhi-water-crisis_625x300_24_June_24.jpeg?ver-20240615.100",
+            "publishedAt": "2024-06-24T07:13:00Z",
+            "content": "File photo\r\nNew Delhi: Delhi cabinet ministers have written a letter to Prime Narendra Modi and urged him to resolve the water crisis in the national capital on a priority basis, Environment Minister… [+933 chars]"
+        },
+        {
+            "source": {
+                "id": "the-hindu",
+                "name": "The Hindu"
+            },
+            "author": "The Hindu",
+            "title": "Major reshuffle of IAS officers in Telangana; over 40 bureaucrats transferred and given new postings - The Hindu",
+            "description": null,
+            "url": "https://www.thehindu.com/news/national/telangana/major-reshuffling-of-ias-officers-in-telangana-over-40-bureaucrats-transferred-and-given-new-postings/article68326743.ece",
+            "urlToImage": null,
+            "publishedAt": "2024-06-24T06:56:00Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Livemint"
+            },
+            "author": "Livemint",
+            "title": "Gautam Gambhir may axe Virat Kohli - Rohit Sharma after becoming India head coach: Report | Mint - Mint",
+            "description": "Report indicates Gautam Gambhir has met with BCCI's Cricket Administrative Committee and proposed 5 conditions for becoming India head coach, such as having control over cricketing operations, selecting his support staff, and potentially dropping underperform…",
+            "url": "https://www.livemint.com/sports/cricket-news/gautam-gambhir-may-axe-virat-kohli-rohit-sharma-after-becoming-india-head-coach-report-bcci-11719207409486.html",
+            "urlToImage": "https://www.livemint.com/lm-img/img/2024/06/24/1600x900/PTI06-21-2024-000505B-0_1719023509641_1719211652945.jpg",
+            "publishedAt": "2024-06-24T06:49:25Z",
+            "content": "Gautam Gambhir has been widely reported to be the frontrunner to replace Raul Dravid as the next head coach when his tenure comes to an end after the 2024 T20 World Cup. According to reports, Gambhir… [+2085 chars]"
+        }
+    ]
+    constructor() {
+        super();
+        console.log("I am a constructor from news state");
+        this.state = {
+            articles : this.articles,
+            loading: false
+        }
+      }
+    render() {
+        return (
+            <div className='container my-3'>
+                <h2>WaveNews -Top Headlines</h2>
+                <div className='row'>
+                    <div className='col-md-4'>
+                        <NewsItem title="myTitle" description="myDescription" imageUrl="https://img1.hscicdn.com/image/upload/f_auto/lsci/db/PICTURES/CMS/383500/383573.6.jpg" newsUrl="TODO"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <NewsItem title="myTitle" description="myDescription" />
+                    </div>
+                    <div className='col-md-4'>
+                        <NewsItem title="myTitle" description="myDescription" />
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
