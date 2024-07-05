@@ -27,15 +27,19 @@ export default class News extends Component {
         document.title = `${this.props.category.charAt(0).toUpperCase() + this.props.category.slice(1)} - WaveNews`;
     }
     async updateNews() {
+        this.props.setProgress(10);
         const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=09d2b7b397e241c4971f70e3df711fc7&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         this.setState({ loading: true });
         let data = await fetch(url);
+        this.props.setProgress(30);
         let parsedData = await data.json();
+        this.props.setProgress(60);
         this.setState({
             articles: parsedData.articles,
             totalResults: parsedData.totalResults,
             loading: false
         })
+        this.props.setProgress(100);
 
     }
 
@@ -67,8 +71,9 @@ export default class News extends Component {
     render() {
         return (
             <>
-
-                <h1 className="text-center" style={{ margin: '35px 0px' }}>WaveNews -Top {this.props.category.charAt(0).toUpperCase() + this.props.category.slice(1)} Headlines</h1>
+                <h1 className="text-center" style={{ margin: '35px 0px', paddingTop: '30px' }}>
+                    WaveNews - Top {this.props.category.charAt(0).toUpperCase() + this.props.category.slice(1)} Headlines
+                </h1>
                 <div className='row'>
                     {/* <div className='container d-flex justify-content-between'>
                         <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}> &larr; Previous</button>
@@ -78,7 +83,7 @@ export default class News extends Component {
                     <InfiniteScroll
                         dataLength={this.state.articles.length}
                         next={this.fetchMoreData}
-                        hasMore={this.state.articles.length !== this.state.totalResults &&  this.state.articles.length < this.state.totalResults }
+                        hasMore={this.state.articles.length !== this.state.totalResults && this.state.articles.length < this.state.totalResults}
                         loader={<Spinner />}
                     >
                         <div className='container'>
