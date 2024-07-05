@@ -74,31 +74,32 @@ export default class News extends Component {
                 <h1 className="text-center" style={{ margin: '35px 0px', paddingTop: '30px' }}>
                     WaveNews - Top {this.props.category.charAt(0).toUpperCase() + this.props.category.slice(1)} Headlines
                 </h1>
-                <div className='row'>
-                    {/* <div className='container d-flex justify-content-between'>
+                <div className="container">
+                    <div className='row'>
+                        {/* <div className='container d-flex justify-content-between'>
                         <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}> &larr; Previous</button>
                         <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)} type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
                     </div> */}
-                    {/* {this.state.loading && <Spinner />} */}
-                    <InfiniteScroll
-                        dataLength={this.state.articles.length}
-                        next={this.fetchMoreData}
-                        hasMore={this.state.articles.length !== this.state.totalResults && this.state.articles.length < this.state.totalResults}
-                        loader={<Spinner />}
-                    >
-                        <div className='container'>
-                            <div className='row'>
-                                {this.state.articles.map((element) => {
-                                    return <div key={element.url} className='col-md-4'>
-                                        <NewsItem title={element.title} description={element.description} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} />
-                                    </div>
+                        {/* {this.state.loading && <Spinner />} */}
+                        <InfiniteScroll
+                            dataLength={this.state.articles.length}
+                            next={this.fetchMoreData}
+                            hasMore={this.state.articles.length !== this.state.totalResults && this.state.articles.length < this.state.totalResults}
+                            loader={<Spinner />}
+                        >
+                            <div className='container'>
+                                <div className='row'>
+                                    {this.state.articles.map((element) => {
+                                        return <div key={element.url} className='col-md-4'>
+                                            <NewsItem title={element.title} description={element.description} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} />
+                                        </div>
 
-                                })
-                                }
-                            </div>
-                        </div >
-                    </InfiniteScroll>
-
+                                    })
+                                    }
+                                </div>
+                            </div >
+                        </InfiniteScroll>
+                    </div>
                 </div>
             </>
         )
